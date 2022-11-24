@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
@@ -8,22 +9,24 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then( () => {})
-        .catch( error => console.error(error))
+        .then( () => {
+            toast.success('Successfully Logged Out');
+        })
+        .catch( error => console.error(error.message))
     }
 
     const menuItems = <React.Fragment>
-        <li><Link to='/home'>Home</Link></li>
-        <li><Link to='/about'>About</Link></li>
-        <li><Link to='/appointment'>Appointment</Link></li>
-        <li><Link to='/contact'>Contact Us</Link></li>
+        <li><Link to='/home' className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white'>Home</Link></li>
+        <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/about'>About</Link></li>
+        <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/appointment'>Appointment</Link></li>
+        <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/contact'>Blog</Link></li>
         {user?.uid ? 
             <>
-                <li><Link to='/dashboard'>Dashboard</Link></li>
-                <li><button onClick={handleLogOut}>Sign Out</button></li>
+                <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/dashboard'>Dashboard</Link></li>
+                <li><button onClick={handleLogOut} className="text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white">Log Out</button></li>
             </>
             :
-            <li><Link to='/login'>Login</Link></li>
+            <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/login'>Login</Link></li>
         }
     </React.Fragment>
 
@@ -38,7 +41,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E7870] to-[#6A9289] lg:text-2xl sm:font-bold font-bold ">Endless Essentials</Link>
+                <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] lg:text-2xl sm:font-bold font-bold ">Endless Essentials</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

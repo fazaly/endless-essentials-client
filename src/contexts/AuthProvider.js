@@ -27,12 +27,6 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    // Email Verify
-    const verifyEmail = () => {
-        setLoading(true)
-        return sendEmailVerification(auth.currentUser)
-    }
-
     // State changed with onAuthState
     useEffect(() => {
         const unsubscribe =  onAuthStateChanged(auth,  (currentUser) => {
@@ -73,7 +67,6 @@ const AuthProvider = ({children}) => {
     const authInfo = {
         createUser,
         signIn,
-        verifyEmail,
         updateUserProfile,
         user,
         logOut,
