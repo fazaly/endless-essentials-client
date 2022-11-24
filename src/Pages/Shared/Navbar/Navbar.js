@@ -19,7 +19,7 @@ const Navbar = () => {
         <li><Link to='/home' className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white'>Home</Link></li>
         <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/about'>About</Link></li>
         <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/appointment'>Appointment</Link></li>
-        <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/contact'>Blog</Link></li>
+        <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/blog'>Blog</Link></li>
         {user?.uid ? 
             <>
                 <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/dashboard'>Dashboard</Link></li>
@@ -41,7 +41,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] lg:text-2xl sm:font-bold font-bold ">Endless Essentials</Link>
+                <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] lg:text-2xl sm:font-bold font-bold">Endless Essentials</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
