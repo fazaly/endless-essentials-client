@@ -4,12 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/Mobile login.gif';
 import PrimaryButton from '../../Components/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../contexts/AuthProvider';
+import Spinner from '../Shared/Spinner/Spinner';
 
 const SignUp = () => {
 
     const navigate = useNavigate();
 
-    const {createUser, signInWithGoogle} = useContext(AuthContext);
+    const {createUser, signInWithGoogle, loading} = useContext(AuthContext);
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -37,8 +38,8 @@ const SignUp = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
         .then( (result) => {
-            const user = result.user;
-            console.log(user);
+            console.log(result.user);
+            toast.success('Google Log In Successful.');
         })
         .catch(error => {
             console.error(error);
@@ -46,10 +47,10 @@ const SignUp = () => {
     }
 
     return (
-        <div className="hero mt-40">
+        <div className="hero mt-28">
             <div className="hero-content grid grid-cols-1 gap-20 md:gap-24 lg:gap-24 md:grid-cols-2 lg:grid-cols-2 flex-col lg:flex-row">
-                <div>
-                    <img className="max-w-sm md:max-w-md lg:max-w-md rounded-lg shadow-2xl" src={img} alt="" />
+                <div className='hidden md:block lg:block'>
+                    <img className="max-w-sm md:max-w-md lg:max-w-md rounded-lg" src={img} alt="" />
                 </div>
                 <div  className="w-full max-w-md p-8 space-y-3 rounded-xl bg-[#78909C] text-white">
                     <h1 className="text-2xl font-bold text-center">Sign Up</h1>
@@ -66,7 +67,7 @@ const SignUp = () => {
                             <label htmlFor="Password" className=" dark:text-gray-400">Password</label>
                             <input className="w-full px-4 py-3 rounded-md border-gray-700 text-gray-900 focus:dark:border-violet-400" type="password" name="password" placeholder='Password' required/>
                         </div>
-                        <PrimaryButton>Sign Up</PrimaryButton>
+                        <PrimaryButton>{loading ? <Spinner/> : 'Sign Up'}</PrimaryButton>
                     </form>
                         <div className="flex items-center pt-4 space-x-1">
                             <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>

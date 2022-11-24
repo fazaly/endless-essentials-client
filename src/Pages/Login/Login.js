@@ -1,12 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/Reset password.gif';
 import PrimaryButton from '../../Components/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../contexts/AuthProvider';
+import Spinner from '../Shared/Spinner/Spinner';
 
 const Login = () => {
-    const {signIn, signInWithGoogle} = useContext(AuthContext);
+    const {signIn, signInWithGoogle, resetPassword, loading,
+        setLoading} = useContext(AuthContext);
+
+    const [userEmail, setUserEmail] = useState('')
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -37,35 +41,48 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
         .then( (result) => {
-            const user = result.user;
-            console.log(user);
+            console.log(result.user);
+            toast.success('Google Log In Successful.');
         })
         .catch(error => {
             console.error(error);
         })
     }
 
+    // Pass reset
+    const handleReset = () => {
+        resetPassword(userEmail)
+        .then(() => {
+            toast.success('Please check your email for reset Link')
+        })
+        .catch(err => {
+            toast.error(err.message)
+            console.log(err)
+            setLoading(false)
+        })
+    }
+
     return (
-        <div className="hero mt-40">
+        <div className="hero mt-28">
             <div className="hero-content grid grid-cols-1 gap-20 md:gap-24 lg:gap-24 md:grid-cols-2 lg:grid-cols-2 flex-col lg:flex-row">
-                <div>
-                    <img className="max-w-sm md:max-w-md lg:max-w-md rounded-lg shadow-2xl" src={img} alt="" />
+                <div className='hidden md:block lg:block'>
+                    <img className="max-w-sm md:max-w-md lg:max-w-md rounded-lg" src={img} alt="" />
                 </div>
                 <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-[#78909C] text-white">
                     <h1 className="text-2xl font-bold text-center">Sign In</h1>
                     <form onSubmit={handleLogIn} className="space-y-6 ng-untouched ng-pristine ng-valid">
                         <div className="space-y-1 text-sm">
                             <label htmlFor="Email" className="block dark:text-gray-400">Email</label>
-                            <input type="email" name="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-gray-900 focus:dark:border-violet-400" />
+                            <input onBlur={event => setUserEmail(event.target.value)} type="email" name="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-gray-900 focus:dark:border-violet-400" />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="password" className="block dark:text-gray-400">Password</label>
                             <input type="password" name="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-gray-900 focus:dark:border-violet-400" />
-                            <div className="flex justify-start text-xs dark:text-gray-400">
+                            <div onClick={handleReset} className="flex justify-start text-xs dark:text-gray-400">
                                 <Link>Forgot Password?</Link>
                             </div>
                         </div>
-                        <PrimaryButton>Log In</PrimaryButton>
+                        <PrimaryButton>{loading ? <Spinner/> : 'Log In'}</PrimaryButton>
                     </form>
                         <div className="flex items-center pt-4 space-x-1">
                             <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>

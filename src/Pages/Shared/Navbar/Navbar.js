@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import { MdOutlineSettingsSuggest } from "react-icons/md";
 
 const Navbar = () => {
 
@@ -31,7 +32,7 @@ const Navbar = () => {
     </React.Fragment>
 
     return (
-        <div className="navbar text-[#000000] flex justify-between">
+        <div className="navbar bg-gray-200 w-full flex justify-between">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,10 +42,10 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] lg:text-2xl sm:font-bold font-bold">Endless Essentials</Link>
+                <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] lg:text-2xl sm:font-bold font-bold lg:ml-[100px]">Endless Essentials</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
+                <ul className="menu menu-horizontal p-0 mr-[100px]">
                     {menuItems}
                 </ul>
             </div>
