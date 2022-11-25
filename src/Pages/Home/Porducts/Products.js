@@ -27,8 +27,8 @@ const Products = () => {
 
     return (
         <div>
-            <h1 className='text-transparent text-center bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] lg:text-3xl sm:font-bold font-bold mb-10'>Products Category</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14'>
+            <h1 className='text-gray-600 text-center lg:text-5xl sm:font-bold font-bold mb-20'>Products Category</h1>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
                     products.map(product => <SingleProduct
                     key={product._id}
