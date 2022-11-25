@@ -8,6 +8,7 @@ import Login from "../../Pages/Login/Login";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import MyOrders from "../../Dashboard/MyOrders/MyOrders";
 
 export const router = createBrowserRouter([
     {
@@ -48,8 +49,8 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
         children: [
             {
-                path: '/dashboard',
-                element: '',
+                path: '/dashboard/myorder',
+                element: <MyOrders></MyOrders>,
             },
         ]
     }
