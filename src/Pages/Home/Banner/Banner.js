@@ -5,7 +5,7 @@ import PrimaryButton from '../../../Components/PrimaryButton/PrimaryButton';
 
 const Banner = () => {
     return (
-        <section className="dark:bg-gray-800 dark:text-gray-100 ml-[70px] mr-[70px]">
+        <section className="dark:bg-gray-800 dark:text-gray-100">
             <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-3 mx-auto sm:py-12  lg:flex-row lg:justify-between">
                 <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
                     <h1 className="lg:text-5xl font-bold leading-none text-gray-600 sm:text-3xl">Stay Connected Everywhere You Go!

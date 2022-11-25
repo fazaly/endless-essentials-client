@@ -42,10 +42,10 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] lg:text-2xl sm:font-bold font-bold lg:ml-[100px]">Endless Essentials</Link>
+                <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] lg:text-2xl sm:font-bold font-bold">Endless Essentials</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0 mr-[100px]">
+                <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
             </div>

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
-            <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] lg:text-2xl sm:font-bold font-bold">Endless Essentials</Link>
+        <footer className="footer footer-center p-10 bg-gray-200 text-base-content rounded">
+            <Link to='/' className="text-transparent bg-clip-text bg-gradient-to-r from-[#F44369] to-[#D64270] sm:text-2xl md:text-2xl lg:text-2xl font-bold">Endless Essentials</Link>
             <div className="grid grid-flow-col gap-4">
                 <Link>About us</Link> 
                 <Link>Contact</Link> 
