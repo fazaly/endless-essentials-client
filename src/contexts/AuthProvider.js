@@ -38,12 +38,8 @@ const AuthProvider = ({children}) => {
     }, []);
 
     // update user name & photo url
-    const updateUserProfile = (name, photo) => {
-        setLoading(true)
-        return updateProfile(auth.currentUser, {
-        displayName: name,
-        photoURL: photo,
-        })
+    const updateUser = (userInfo) => {
+        return updateProfile(auth.currentUser, userInfo);
     }
 
     // Forget Password
@@ -67,7 +63,7 @@ const AuthProvider = ({children}) => {
     const authInfo = {
         createUser,
         signIn,
-        updateUserProfile,
+        updateUser,
         user,
         logOut,
         loading,

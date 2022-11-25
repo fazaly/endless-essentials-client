@@ -10,7 +10,7 @@ const SignUp = () => {
 
     const navigate = useNavigate();
 
-    const {createUser, signInWithGoogle, loading} = useContext(AuthContext);
+    const {createUser, signInWithGoogle, loading, updateUser} = useContext(AuthContext);
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -19,19 +19,44 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        const userData = form.users.value;
+        // console.log(name, email, password, userData);
 
         createUser(email, password)
         .then( result => {
             const user  = result.user;
             console.log(user);
-            toast.success('User Created Successfully');
-            form.reset();
-            navigate('/');
+            const userInfo = {
+                displayName: name
+            }
+            updateUser(userInfo)
+            .then(() => {
+                saveUser(name, email, userData);
+                form.reset();
+            })
+            .catch(error => {
+                console.error(error);
+            });
         })
         .catch( error => {
             console.error(error.message)
+        });
+    }
+
+    const saveUser = (name, email, user) => {
+        const users = { name, email, user };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
         })
+            .then(res => res.json())
+            .then(data => {
+                toast.success('User send to database')
+                navigate('/')
+            })
     }
 
     // Google Sign In
@@ -58,6 +83,15 @@ const SignUp = () => {
                         <div className="form-control space-y-1 text-sm">
                             <label htmlFor="Name" className="block dark:text-gray-400">Name</label>
                             <input type="text" name="name" placeholder="Your Name" className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-gray-900 focus:dark:border-violet-400" />
+                        </div>
+                        <div className="form-control space-y-1 text-sm">
+                            <label className="label">
+                                <span className=" dark:text-gray-400">Buyer/Seller</span>
+                            </label>
+                            <select name='users' className="select select-bordered w-full text-gray-900">
+                                <option value='user'>user</option>
+                                <option value='seller'>seller</option>
+                            </select>
                         </div>
                         <div className="form-control space-y-1 text-sm">
                             <label htmlFor="Email" className="block dark:text-gray-400">Email</label>
