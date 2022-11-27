@@ -58,8 +58,8 @@ const AllUsers = () => {
                                 <th>{i+1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
-                                <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+                                <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-sm border-none mt-2 bg-[#00b09b] text-white'>Make Admin</button>}</td>
+                                <td><button className='btn btn-sm border-none mt-2 bg-gradient-to-r from-[#e52d27] to-[#b31217]'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>

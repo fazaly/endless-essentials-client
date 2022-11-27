@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-import useAdmin from '../../hooks/useAdmin';
+import useAdmin from '../../hooks/UseAdmin';
 import Spinner from '../../Pages/Shared/Spinner/Spinner';
 
 
@@ -17,7 +17,7 @@ const AdminRoute = ({children}) => {
 
     // for loading 
     if(loading || isAdminLoading){
-        return <Spinner></Spinner>
+        return <Spinner/>
     }
 
     if(user && isAdmin ){
