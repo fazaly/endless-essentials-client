@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
 import { FaUsers } from "react-icons/fa";
-import { MdAddComment, MdAddCircle } from "react-icons/md";
+import { MdAddComment, MdAddCircle, MdOutlineSupervisedUserCircle } from "react-icons/md";
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
@@ -30,7 +30,8 @@ const DashboardLayout = () => {
                                     <li className='text-black mb-2'><Link to='/dashboard/allUsers'><FaUsers className='text-[#e52d27] w-[25px] h-[25px]'/>All Users</Link></li>
                                 </>
                             }
-                            <li className='text-black'><Link to='/dashboard/addProduct'><MdAddCircle className='text-[#e52d27] w-[25px] h-[25px]'/>Add Products</Link></li>
+                            <li className='text-black mb-2'><Link to='/dashboard/addProduct'><MdAddCircle className='text-[#e52d27] w-[25px] h-[25px]'/>Add Products</Link></li>
+                            <li className='text-black'><Link to='/dashboard/myProducts'><MdOutlineSupervisedUserCircle className='text-[#e52d27] w-[25px] h-[25px]'/>My Products</Link></li>
                         </ul>
                     </div>
                 </div>

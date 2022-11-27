@@ -125,7 +125,7 @@ const CheckoutForm = ({booking}) => {
                     }}
             />
                 <button 
-                    className='btn btn-sm btn-primary mt-4' 
+                    className='btn btn-sm bg-[#4B79A1] mt-4' 
                     type="submit" 
                     disabled={!stripe || !clientSecret || processing}>
                     Pay

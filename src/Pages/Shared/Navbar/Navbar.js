@@ -18,8 +18,6 @@ const Navbar = () => {
 
     const menuItems = <React.Fragment>
         <li><Link to='/home' className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white'>Home</Link></li>
-        <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/about'>About</Link></li>
-        <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/appointment'>Appointment</Link></li>
         <li><Link className='text-black rounded-lg hover:bg-gradient-to-r from-[#F44369] to-[#D64270] hover:text-white' to='/blog'>Blog</Link></li>
         {user?.uid ? 
             <>
