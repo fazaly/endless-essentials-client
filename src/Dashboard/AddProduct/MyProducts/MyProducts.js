@@ -13,7 +13,7 @@ const MyProducts = () => {
     const { data: products, isLoading, refetch = [] } = useQuery({
         queryKey: ['myProducts', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myProducts?email=${user?.email}`,{
+            const res = await fetch(`https://b612-used-products-resale-server-side-fazaly.vercel.app/myProducts?email=${user?.email}`,{
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -27,7 +27,7 @@ const MyProducts = () => {
         const confirm = window.confirm('Are you sure you want to confirm Advertise');
         const data = new Date();
         if(confirm){
-            fetch('http://localhost:5000/advertise', {
+            fetch('https://b612-used-products-resale-server-side-fazaly.vercel.app/advertise', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -50,7 +50,7 @@ const MyProducts = () => {
     // Products info from client UI
     const handleDeleteProduct = (id) => {
         // console.log(advertiseId);
-        fetch(`http://localhost:5000/myProducts/${id}`, {
+        fetch(`https://b612-used-products-resale-server-side-fazaly.vercel.app/myProducts/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

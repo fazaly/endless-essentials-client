@@ -57,7 +57,7 @@ const SignUp = () => {
 
     const saveUser = (name, email, user) => {
         const users = { name, email, user };
-        fetch('http://localhost:5000/users', {
+        fetch('https://b612-used-products-resale-server-side-fazaly.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

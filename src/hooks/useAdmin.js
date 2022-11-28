@@ -9,7 +9,7 @@ const useAdmin = email => {
     
     useEffect(() => {
         if(email){
-            fetch(`http://localhost:5000/users/admin/${email}`)
+            fetch(`https://b612-used-products-resale-server-side-fazaly.vercel.app/users/admin/${email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

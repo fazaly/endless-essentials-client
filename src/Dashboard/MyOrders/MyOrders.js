@@ -10,7 +10,7 @@ const MyOrders = () => {
 
     const {user} = useContext(AuthContext);
 
-    const url = `http://localhost:5000/myorder?email=${user?.email}`;
+    const url = `https://b612-used-products-resale-server-side-fazaly.vercel.app/myorder?email=${user?.email}`;
 
     const {data: order, isLoading = [] } = useQuery({
         queryKey: ['order'],

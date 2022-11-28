@@ -9,7 +9,7 @@ const Products = () => {
 
     // const [loading, setLoading] = useState(true);
 
-    const url = 'http://localhost:5000/products';
+    const url = 'https://b612-used-products-resale-server-side-fazaly.vercel.app/products';
 
     const {data: products, isLoading = [] } = useQuery({
         queryKey: ['products'],

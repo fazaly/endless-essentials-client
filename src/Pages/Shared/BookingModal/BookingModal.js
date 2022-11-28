@@ -31,7 +31,7 @@ const BookingModal = ({ booking, setBooking}) => {
             image,
             time: data.getTime()
         }
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://b612-used-products-resale-server-side-fazaly.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

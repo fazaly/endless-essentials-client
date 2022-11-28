@@ -54,7 +54,7 @@ const AddProducts = () => {
                         image: imgData.data.url,
                         time: data.getTime()
                     }
-                    fetch('http://localhost:5000/addProducts', {
+                    fetch('https://b612-used-products-resale-server-side-fazaly.vercel.app/addProducts', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
