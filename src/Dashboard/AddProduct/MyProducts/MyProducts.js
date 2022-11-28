@@ -2,10 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useTitle from '../../../hooks/UseTitle';
 import Spinner from '../../../Pages/Shared/Spinner/Spinner';
 
 
 const MyProducts = () => {
+    useTitle('My Product');
     const { user } = useContext(AuthContext);
 
     const { data: products, isLoading, refetch = [] } = useQuery({

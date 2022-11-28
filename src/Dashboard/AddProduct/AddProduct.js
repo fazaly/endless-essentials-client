@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/UseTitle';
 
 
 const AddProducts = () => {
+    useTitle('Add Product');
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 

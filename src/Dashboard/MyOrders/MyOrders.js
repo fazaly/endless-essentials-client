@@ -2,9 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/UseTitle';
 import Spinner from '../../Pages/Shared/Spinner/Spinner';
 
 const MyOrders = () => {
+    useTitle('My Order');
 
     const {user} = useContext(AuthContext);
 

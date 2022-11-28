@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/UseTitle';
 import CategoryInfo from './CategoryInfo';
 
 const Category = () => {
+    useTitle('Category');
 
     const categories = useLoaderData();
     // console.log(categories);

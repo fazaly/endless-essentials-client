@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import useTitle from '../../hooks/UseTitle';
 import ConfirmationModal from '../../Pages/Shared/ConfirmationModal/ConfirmationModal';
 
 const AllUsers = () => {
+    useTitle('All User');
 
     const [deleteUser, setDeleteUser] = useState(null)
 
@@ -70,6 +72,7 @@ const AllUsers = () => {
                     <tr>
                         <th></th>
                         <th>Name</th>
+                        <th>Status</th>
                         <th>Email</th>
                         <th>Admin</th>
                         <th>Delete</th>
@@ -80,6 +83,7 @@ const AllUsers = () => {
                             users.map((user, i) => <tr key={user._id}>
                                 <th>{i+1}</th>
                                 <td>{user.name}</td>
+                                <td>{user.user}</td>
                                 <td>{user.email}</td>
                                 <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-sm border-none mt-2 bg-[#00b09b] text-white'>Make Admin</button>}</td>
                                 <td><label onClick={() => setDeleteUser(user)} htmlFor="my-modal" className='btn btn-sm border-none mt-2 bg-gradient-to-r from-[#e52d27] to-[#b31217]'>delete</label></td>

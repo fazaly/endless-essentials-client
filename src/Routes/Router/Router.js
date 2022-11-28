@@ -14,6 +14,7 @@ import AddProduct from "../../Dashboard/AddProduct/AddProduct";
 import Payment from '../../Dashboard/Dashboard/Payment/Payment';
 import MyProducts from "../../Dashboard/AddProduct/MyProducts/MyProducts";
 import AdminRoute from "../../Routes/AdminRoute/AdminRoute";
+import AllCategory from "../../Pages/Home/Category/AllCategory/AllCategory";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
                 path: '/category/:name',
                 element: <Category></Category>,
                 loader: ({params}) => fetch(`http://localhost:5000/category/${params.name}`)
+            },
+            {
+                path: '/allCategory',
+                element: <AllCategory/>
             },
             {
                 path: '/blog',

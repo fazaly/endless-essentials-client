@@ -5,8 +5,10 @@ import useAdmin from '../hooks/useAdmin';
 import { FaUsers } from "react-icons/fa";
 import { MdAddComment, MdAddCircle, MdOutlineSupervisedUserCircle } from "react-icons/md";
 import Navbar from '../Pages/Shared/Navbar/Navbar';
+import useTitle from '../hooks/UseTitle';
 
 const DashboardLayout = () => {
+    useTitle('Dashboard');
 
     const {user} = useContext(AuthContext);
 

@@ -4,9 +4,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/Reset password.gif';
 import PrimaryButton from '../../Components/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/UseTitle';
 import Spinner from '../Shared/Spinner/Spinner';
 
 const Login = () => {
+
+    useTitle('Login');
+
     const {signIn, signInWithGoogle, resetPassword, loading,
         setLoading} = useContext(AuthContext);
 

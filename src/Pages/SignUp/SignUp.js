@@ -4,9 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/Mobile login.gif';
 import PrimaryButton from '../../Components/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/UseTitle';
 import Spinner from '../Shared/Spinner/Spinner';
 
 const SignUp = () => {
+    useTitle('Sign Up');
 
     const navigate = useNavigate();
 

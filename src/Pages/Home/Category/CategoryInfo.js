@@ -15,7 +15,7 @@ const CategoryInfo = ({category}) => {
 
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-2xl mt-20 mb-10">
+            <div className="card w-96 bg-base-100 shadow-2xl mt-20 mb-5">
             <figure className='p-8 mt-4'><img src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <div>
