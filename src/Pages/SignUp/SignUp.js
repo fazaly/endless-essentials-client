@@ -1,16 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/Mobile login.gif';
 import PrimaryButton from '../../Components/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/UseTitle';
+import useToken from '../../hooks/useToken';
 import Spinner from '../Shared/Spinner/Spinner';
 
 const SignUp = () => {
     useTitle('Sign Up');
 
+    // Step- 09 (jwt)
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
+
     const navigate = useNavigate();
+
+    // Step- 11 (jwt)
+    if(token){
+        navigate('/')
+    }
 
     const {createUser, signInWithGoogle, loading, updateUser} = useContext(AuthContext);
 
@@ -56,8 +66,11 @@ const SignUp = () => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success('User send to database')
-                navigate('/')
+                // toast.success('User send to database')
+                // navigate('/')
+
+                // Step- 10 (jwt)
+                setCreatedUserEmail(email);
             })
     }
 

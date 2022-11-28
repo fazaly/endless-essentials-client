@@ -15,7 +15,12 @@ const MyOrders = () => {
     const {data: order, isLoading = [] } = useQuery({
         queryKey: ['order'],
         queryFn: async () => {
-            const res = await fetch(url); 
+            const res = await fetch(url, {
+                // Step- 04 (jwt)
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            }); 
             const data = await res.json();
             // console.log(data);
             return data;

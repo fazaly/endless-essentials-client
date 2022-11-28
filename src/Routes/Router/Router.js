@@ -13,8 +13,8 @@ import AllUsers from "../../Dashboard/AllUsers/AllUsers";
 import AddProduct from "../../Dashboard/AddProduct/AddProduct";
 import Payment from '../../Dashboard/Dashboard/Payment/Payment';
 import MyProducts from "../../Dashboard/AddProduct/MyProducts/MyProducts";
-import AdminRoute from "../../Routes/AdminRoute/AdminRoute";
 import AllCategory from "../../Pages/Home/Category/AllCategory/AllCategory";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -64,7 +64,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allUsers',
-                element: <AllUsers></AllUsers>,
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
             },
             {
                 path: '/dashboard/addProduct',

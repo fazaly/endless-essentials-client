@@ -5,6 +5,7 @@ import img from '../../assets/images/login/Reset password.gif';
 import PrimaryButton from '../../Components/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/UseTitle';
+import useToken from '../../hooks/useToken';
 import Spinner from '../Shared/Spinner/Spinner';
 
 const Login = () => {
@@ -14,11 +15,20 @@ const Login = () => {
     const {signIn, signInWithGoogle, resetPassword, loading,
         setLoading} = useContext(AuthContext);
 
-    const [userEmail, setUserEmail] = useState('')
+    const [userEmail, setUserEmail] = useState('');
+
+     // Step- 12 (jwt)
+    const [loginUserEmail, setLoginUserEmail] = useState('');
+    const [token] = useToken(loginUserEmail);
 
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
+
+    // Step- 14 (jwt)
+    if(token){
+        navigate(from, {replace: true});
+    }
 
     const handleLogIn = event => {
         event.preventDefault();
@@ -33,7 +43,9 @@ const Login = () => {
         .then(result => {
             console.log(result.user);
             toast.success('Successfully Logged In');
-            navigate(from, {replace: true})
+             // Step- 13 (jwt)
+            setLoginUserEmail(email);
+            // navigate(from, {replace: true})
         })
         .catch(error => {
             console.error(error.message);
